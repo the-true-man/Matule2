@@ -17,6 +17,7 @@ class LoginViewModel: ObservableObject {
             isLoading = true
             do {
                 try await SupabaseService.instance.Auth(email: email, password: password)
+                isLogin = true
 
             }catch {
                 print(error.localizedDescription)
