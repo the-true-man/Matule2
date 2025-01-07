@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct ProductView: View {
     @State var isLoading = false
     var sneaker: Sneaker
@@ -17,13 +18,24 @@ struct ProductView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             } placeholder: {
-                ProgressView()
+                HStack{
+                    Spacer()
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+                .frame(width: 100, height: 100)
             }
                 .padding(.horizontal, 12)
                 .padding(.top, 18)
             if sneaker.bestseller {
                 Text("Best seller".uppercased())
                     .foregroundColor(.accent)
+                    .font(.system(size: 12))
+                    .padding(.bottom, 8)
+            }
+            else {
+                Text("")
                     .font(.system(size: 12))
                     .padding(.bottom, 8)
             }
@@ -82,8 +94,3 @@ struct ProductView: View {
     }
 }
 
-#Preview {
-    ProductView(sneaker: Sneaker(id: "qwe", name: "Nike Air Max", price: 752.0, category: 3, description: "qweqwe as asd", bestseller: true, fullname: "Nike Air Max qweqwe"))
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
-}

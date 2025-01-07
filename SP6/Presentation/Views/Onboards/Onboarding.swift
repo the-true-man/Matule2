@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct Onboarding: View {
     @AppStorage("isNavigateToMain") var isNavigate = false
     @AppStorage("currentOnboard") var currentOnboard = 0
@@ -54,6 +55,7 @@ struct Onboarding: View {
                 }
             })
         }
+        .navigationViewStyle(.stack)
         
     }
     func nextOnboard(increment: Int = 1) {
@@ -70,5 +72,7 @@ struct Onboarding: View {
 }
 
 #Preview {
-    Onboarding()
+    if #available(iOS 15.0, *) {
+        Onboarding()
+    } 
 }

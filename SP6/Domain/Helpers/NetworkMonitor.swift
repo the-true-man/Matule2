@@ -8,23 +8,19 @@
 import Foundation
 import Network
 
-class NetworkMonitor {
+final class NetworkMonitor {
     static let shared = NetworkMonitor()
-    let monitor: NWPathMonitor
-    var isConnected: Bool  = false
+    private let monitor = NWPathMonitor()
+    @Published var isConnected: Bool = true
     private let queue = DispatchQueue(label: "NetworkConnectivityMonitor")
 
-    init() {
-        monitor = NWPathMonitor()
+    private init() {
+        startMonitoring()
     }
     func startMonitoring() {
         monitor.pathUpdateHandler = { [weak self] path in
             self?.isConnected = path.status != .unsatisfied
         }
         monitor.start(queue: queue)
-    }
-    
-    func stopMonitoring() {
-        monitor.cancel()
     }
 }

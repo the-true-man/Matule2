@@ -26,5 +26,16 @@ class SupabaseService {
     func fetchImage(path: String) async throws -> URL {
         try supabase.storage.from("assets").getPublicURL(path: path, download: false)
     }
+    
+    func fetchAds() async throws -> URL {
+        let response = try await supabase.from("ads").select().execute().data
+        let ads = try JSONDecoder().decode([Ads].self, from: response)
+        return try supabase.storage.from("ads").getPublicURL(path: "\(ads.first!.id).png", download: false)
+    }
+    
+    func Auth(email: String, password: String) async throws {
+        //я так понимаю тут над респонс класть в переменную и с ним уже делать
+        try await supabase.auth.signIn(email: email, password: password)
+    }
      
 }
