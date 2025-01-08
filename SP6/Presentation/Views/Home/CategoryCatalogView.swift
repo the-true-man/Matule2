@@ -75,10 +75,10 @@ struct CategoryCatalogView: View {
                             ForEach(model.sneakers) { sneaker in
                                 if sneaker.category == selectedCategory.id && selectedCategory.id != 0 {
                                     
-                                    ProductView(isLoading: model.isLoading, sneaker: sneaker)
+                                    ProductView(model: model ,isLoading: model.isLoading, sneaker: sneaker)
                                 }
                                 if(selectedCategory.id == 0) {
-                                    ProductView(isLoading: model.isLoading, sneaker: sneaker)
+                                    ProductView(model: model ,isLoading: model.isLoading, sneaker: sneaker)
                                 }
                                 
                             }

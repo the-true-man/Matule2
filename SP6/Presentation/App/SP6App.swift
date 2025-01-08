@@ -12,6 +12,7 @@ struct SP6App: App {
     var body: some Scene {
         WindowGroup {
             LoginView()
+            //Onboarding()
         }
     }
 }

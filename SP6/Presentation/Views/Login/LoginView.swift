@@ -69,6 +69,12 @@ struct LoginView: View {
                 Onboarding()
                     .navigationBarBackButtonHidden(true)
             }
+            .alert("Ошибка", isPresented: $model.isError) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(model.errorMessage)
+            }
+            .background(Color.block)
         }
     }
 }

@@ -12,14 +12,8 @@ struct Onboarding: View {
     @AppStorage("isNavigateToMain") var isNavigate = false
     @AppStorage("currentOnboard") var currentOnboard = 0
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack{
-                NavigationLink(isActive: $isNavigate) {
-                    Home()
-                        .navigationBarBackButtonHidden(true)
-                } label: {
-                    EmptyView()
-                }
                 Spacer()
                     .frame(height: currentOnboard == 0 ? 70 : 80)
                 switch currentOnboard {
@@ -53,6 +47,10 @@ struct Onboarding: View {
                 else {
                     nextOnboard(increment: 1)
                 }
+            })
+            .navigationDestination(isPresented: $isNavigate, destination: {
+                Home()
+                    .navigationBarBackButtonHidden(true)
             })
         }
         .navigationViewStyle(.stack)

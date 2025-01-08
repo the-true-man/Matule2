@@ -9,6 +9,7 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct ProductView: View {
+    @StateObject var model: HomeViewModel
     @State var isLoading = false
     var sneaker: Sneaker
     var body: some View {
@@ -24,7 +25,7 @@ struct ProductView: View {
                     ProgressView()
                     Spacer()
                 }
-                .frame(width: 100, height: 100)
+                .frame(width: 100, height: 60)
             }
                 .padding(.horizontal, 12)
                 .padding(.top, 18)
@@ -63,15 +64,16 @@ struct ProductView: View {
             }
             
         }
+        .frame(maxHeight: 190)
         .onLoading(isLoading: isLoading)
         .overlay(
             VStack {
                 HStack {
-                    Button(action: {}) {
+                    Button(action: {model.addAndDeleteToFavorite(selectSneaker: sneaker)}) {
                         ZStack {
                             Circle()
                                 .foregroundColor(.background)
-                            Image("heart")
+                            Image(model.favorites.contains(where: { $0.id == sneaker.id }) ? "favorite fill" : "heart")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 16, height: 16)

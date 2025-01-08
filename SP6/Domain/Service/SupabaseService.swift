@@ -33,9 +33,39 @@ class SupabaseService {
         return try supabase.storage.from("ads").getPublicURL(path: "\(ads.first!.id).png", download: false)
     }
     
-    func Auth(email: String, password: String) async throws {
-        //я так понимаю тут над респонс класть в переменную и с ним уже делать
+    func loginUser(email: String, password: String) async throws {
         try await supabase.auth.signIn(email: email, password: password)
     }
+    func getFavorite(userId: String) async throws -> [Sneaker] {
+        let favoriteSneakersResponse: [[String:String]] = try await supabase
+            .from("favorites")
+            .select("sneaker")
+            .eq("user", value: userId)
+            .execute()
+            .value
+        let favoriteSneakersId: [String] = favoriteSneakersResponse.compactMap{$0["sneaker"]}
+        
+        var favoriteSneakers: [Sneaker] = []
+        for i in favoriteSneakersId {
+            favoriteSneakers = try await supabase.from("sneakers").select().eq("id", value: i).execute().value
+        }
+        for i in favoriteSneakers.indices {
+            favoriteSneakers[i].image = try await fetchImage(path: "\(favoriteSneakers[i].id).png")
+        }
+        return favoriteSneakers
+    }
+    
+    func addFavorite(idSneaker: String, idUser: String) async throws {
+        try await supabase.from("favorites").insert(["sneaker": idSneaker, "user": idUser]).execute()
+    }
+    
+    func deleteFavorite(idSneaker: String, idUser: String) async throws {
+        try await supabase.from("favorites")
+            .delete()
+            .eq("sneaker", value: idSneaker)
+            .eq("user", value: idUser)
+            .execute()
+    }
+    
      
 }

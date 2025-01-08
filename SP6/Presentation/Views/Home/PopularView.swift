@@ -50,7 +50,7 @@ struct PopularView: View {
                         ForEach(0..<8) { _ in
                             ForEach(model.sneakers) { sneaker in
                                 if sneaker.bestseller {
-                                    ProductView(isLoading: model.isLoading, sneaker: sneaker)
+                                    ProductView(model: model ,isLoading: model.isLoading, sneaker: sneaker)
                                 }                            }
                         }
                     }

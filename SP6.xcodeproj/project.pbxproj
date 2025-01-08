@@ -38,8 +38,9 @@
 		DB50B6902D2AD3EC008EB3B3 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB50B68F2D2AD3EC008EB3B3 /* NetworkMonitor.swift */; };
 		DB50B6922D2AF7B2008EB3B3 /* Ads.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB50B6912D2AF7B2008EB3B3 /* Ads.swift */; };
 		DB50B6952D2B115E008EB3B3 /* SwiftSVG in Frameworks */ = {isa = PBXBuildFile; productRef = DB50B6942D2B115E008EB3B3 /* SwiftSVG */; };
+		DB8F831A2D2E728500D3465B /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F83192D2E728500D3465B /* MainHomeView.swift */; };
+		DB8F832D2D2E7D3200D3465B /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F832C2D2E7D3200D3465B /* Tabs.swift */; };
 		DBAC5BFF2D2D3CD00032CB5E /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAC5BFE2D2D3CD00032CB5E /* FavoriteView.swift */; };
-		DBAC5C012D2D3EC90032CB5E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAC5C002D2D3EC90032CB5E /* User.swift */; };
 		DBAC5C032D2D3F040032CB5E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAC5C022D2D3F040032CB5E /* LoginView.swift */; };
 		DBAC5C052D2D3F6B0032CB5E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAC5C042D2D3F6B0032CB5E /* CustomTextField.swift */; };
 		DBAC5C082D2D40AF0032CB5E /* CustomStyleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAC5C072D2D40AF0032CB5E /* CustomStyleTextField.swift */; };
@@ -91,8 +92,9 @@
 		DB50B68C2D2ABBC7008EB3B3 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		DB50B68F2D2AD3EC008EB3B3 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		DB50B6912D2AF7B2008EB3B3 /* Ads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ads.swift; sourceTree = "<group>"; };
+		DB8F83192D2E728500D3465B /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
+		DB8F832C2D2E7D3200D3465B /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		DBAC5BFE2D2D3CD00032CB5E /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
-		DBAC5C002D2D3EC90032CB5E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DBAC5C022D2D3F040032CB5E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DBAC5C042D2D3F6B0032CB5E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DBAC5C072D2D40AF0032CB5E /* CustomStyleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyleTextField.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		DB50B6582D2A778A008EB3B3 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				DB8F832E2D2E7D9900D3465B /* Enums */,
 				DB50B68E2D2AD3DF008EB3B3 /* Helpers */,
 				DB50B65B2D2A77A4008EB3B3 /* Extensions */,
 				DB50B65A2D2A77A0008EB3B3 /* Service */,
@@ -277,7 +280,6 @@
 				DB50B6622D2A77F6008EB3B3 /* Category.swift */,
 				DB50B6642D2A7813008EB3B3 /* Sneaker.swift */,
 				DB50B6912D2AF7B2008EB3B3 /* Ads.swift */,
-				DBAC5C002D2D3EC90032CB5E /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +311,7 @@
 				DB07C7A42D2BF59B00858DF1 /* PopularView.swift */,
 				DB07C7A82D2C3FE800858DF1 /* CategoryCatalogView.swift */,
 				DBAC5BFE2D2D3CD00032CB5E /* FavoriteView.swift */,
+				DB8F83192D2E728500D3465B /* MainHomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -319,6 +322,14 @@
 				DB50B68F2D2AD3EC008EB3B3 /* NetworkMonitor.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DB8F832E2D2E7D9900D3465B /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				DB8F832C2D2E7D3200D3465B /* Tabs.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		DBAC5C062D2D40A20032CB5E /* Style */ = {
@@ -496,7 +507,6 @@
 				DBAC5C082D2D40AF0032CB5E /* CustomStyleTextField.swift in Sources */,
 				DB50B67F2D2A7C0B008EB3B3 /* Onboard-3.swift in Sources */,
 				DB50B6902D2AD3EC008EB3B3 /* NetworkMonitor.swift in Sources */,
-				DBAC5C012D2D3EC90032CB5E /* User.swift in Sources */,
 				DB50B67B2D2A7B1B008EB3B3 /* CapsulePages.swift in Sources */,
 				DB50B6632D2A77F6008EB3B3 /* Category.swift in Sources */,
 				DB50B6792D2A79B6008EB3B3 /* Onboard-1.swift in Sources */,
@@ -506,10 +516,12 @@
 				DB50B6922D2AF7B2008EB3B3 /* Ads.swift in Sources */,
 				DBAC5C032D2D3F040032CB5E /* LoginView.swift in Sources */,
 				DB50B6652D2A7813008EB3B3 /* Sneaker.swift in Sources */,
+				DB8F832D2D2E7D3200D3465B /* Tabs.swift in Sources */,
 				DB50B67D2D2A7BFD008EB3B3 /* Onboard-2.swift in Sources */,
 				DBAC5C0B2D2D431F0032CB5E /* LoginViewModel.swift in Sources */,
 				DB50B6762D2A795E008EB3B3 /* Onboarding.swift in Sources */,
 				DBAC5BFF2D2D3CD00032CB5E /* FavoriteView.swift in Sources */,
+				DB8F831A2D2E728500D3465B /* MainHomeView.swift in Sources */,
 				DB07C7A52D2BF59B00858DF1 /* PopularView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
